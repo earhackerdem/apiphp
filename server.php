@@ -1,9 +1,25 @@
 <?php
 
-$user = array_key_exists('PHP_AUTH_USER',$_SERVER) ? $_SERVER['PHP_AUTH_USER']:'';
-$pw = array_key_exists('PHP_AUTH_PW',$_SERVER) ? $_SERVER['PHP_AUTH_PW']:'';
+if(
+    !array_key_exists('HTTP_X_HASH',$_SERVER) || 
+    !array_key_exists('HTTP_X_TIMESTAMP',$_SERVER) ||
+    !array_key_exists('HTTP_X_UID',$_SERVER))
 
-if($user !== 'saul' || $pw !=='12345'){
+{
+    die;
+}
+
+list( $hash, $uid, $timestamp ) = [
+    $_SERVER['HTTP_X_HASH'],
+    $_SERVER['HTTP_X_UID'],
+    $_SERVER['HTTP_X_TIMESTAMP'],
+];
+
+$secret = 'Hora';
+
+$newHash = sha1($uid.$timestamp.$secret);
+
+if( $newHash !== $hash){
     die;
 }
 
