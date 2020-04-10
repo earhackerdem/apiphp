@@ -1,76 +1,133 @@
-<html> 
-
-    <head>
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    </head>
-
-    <body>
-
-        <table id='booksTable' class='table'>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <title>API REST</title>
+</head>
+<body>
+    
+    <div class="py-2"></div>
+    
+    <div class="container-fluid">
         
-            <thead>
+        <!-- Tabla de registros -->
+        
+        <div class="row">
             
-                <tr>
-
-                    <th>Titulo </th>
-                    <th>ID Autor </th>
-                    <th>ID Genero</th>
-
-                </tr> 
-
-            </thead>     
-
-            <tbody>
-
-            </tbody>
+            <div class="col-md-2"></div>
             
-        </table>
-
-        <input type="button" value="Cargar libros" id="loadBooks" />
-
-        <div style="display:none;" id="messages">
-
-            <p> </p>
-
+            <div class="col-md-8">
+                
+                
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">ID Autor</th>
+                            <th scope="col">ID Genero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                
+                <!-- Boton para mostrar formulario -->
+                
+                <!-- <input type="button" value="Cargar libros" id="loadBooks" /> -->
+                <button class="btn btn-primary" id="loadBooks">Cargar libros</button>
+                
+                <!-- Mensajes -->
+                
+                <div class="alert alert-warning" style="display:none;" id="messages">
+                    
+                    <p> </p>
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div class="col-md-2"></div>
+            
         </div>
-
-        <div style="display:none;" id="bookForm">
+        
+        
+        
+        <!-- espacio entre tabla de registros y formulario -->
+        
+        <div class="py-2"></div>
+        
+        <!-- espacio entre tabla de registros y formulario -->
+        
+        <!-- Formulario de registro -->
+        
+        
+        <div class="row">
             
-            <hr/>
+            <div class="col-md-2"></div>
             
-            <table>
-
-                <tr>
-                    <td>Titulo:</td>
-                    <td> <input type="text" name="bookTitle" id="bookTitle"> </td>
-                <tr>
-                <tr>
-                    <td>ID Autor:</td>
-                    <td> <input type="text" name="bookAuthorId" id="bookAuthorId"> </td>
-                <tr>
-                <tr>
-                    <td>Titulo:</td>
-                    <td> <input type="text" name="bookGenreId" id="bookGenreId"> </td>
-                <tr>
-
-                <tr>
-                    <td colspan="2"> 
-
-                        <input type="button" value="Guardar" id="bookSave">
-                        
-                    </td> 
-
-                <tr>
-
-            </table>
-
+            <div class="col-md-8">
+                
+                <form  style="display:none;" id="bookForm" >
+                    
+                    <div class="form-group">
+                        <label for="bookTitle">Titulo</label>
+                        <input type="text" class="form-control" name="bookTitle" id="bookTitle" placeholder="Titulo del libro">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookAuthorId">Autor</label>
+                        <input type="text" class="form-control" name="bookAuthorId" id="bookAuthorId" placeholder="ID del Autor">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookGenreId">Genero</label>
+                        <input type="text" class="form-control" name="bookGenreId" id="bookGenreId" placeholder="ID del genero">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mb-2" id="bookSave">Guardar</button>
+                    
+                </form>
+                
+            </div>
+            
+            <div class="col-md-2"></div>
+            
         </div>
-
-    </body>
-
+        
+    </div> 
+    
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
+</body>
 </html>
