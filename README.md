@@ -36,7 +36,11 @@ curl -X 'PUT' http://localhost:8000/books/1 -d '{"titulo":"nuevo Libro","id_auto
 ```
 
 
+<<<<<<< HEAD
 ## Build With
+=======
+##Build With
+>>>>>>> 4e4709fbe2f834d8d17f52e612565156e6d3b3a5
 - PHP 7
 - JS
 - AJAX
