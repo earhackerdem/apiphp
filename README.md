@@ -35,7 +35,6 @@ To use PUT mehod
 curl -X 'PUT' http://localhost:8000/books/1 -d '{"titulo":"nuevo Libro","id_autor":1,"id_genero":2}'
 ```
 
-
 ## Build With
 - PHP 7
 - JS
